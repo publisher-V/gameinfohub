@@ -50,13 +50,24 @@ async function wpFetch<T>(
   }
 
   const response = await fetch(apiUrl, {
+    headers: {
+      Accept: "application/json",
+      "User-Agent": "gameinfohub-next/1.0 (+https://gameinfohub.com)",
+    },
     next: {
       revalidate: 60,
     },
   });
 
   if (!response.ok) {
-    throw new Error(`WordPress API error: ${response.status}`);
+    const responseText = await response.text();
+    const details = responseText.replace(/\s+/g, " ").trim().slice(0, 180);
+
+    throw new Error(
+      `WordPress API error: ${response.status} from ${apiUrl.origin}${
+        details ? ` - ${details}` : ""
+      }`,
+    );
   }
 
   return response.json() as Promise<T>;
@@ -105,4 +116,3 @@ export function formatPostDate(date: string) {
     day: "numeric",
   }).format(new Date(date));
 }
-
