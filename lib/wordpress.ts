@@ -63,6 +63,20 @@ export type WordPressMedia = {
   };
 };
 
+export type WordPressAcfImage =
+  | string
+  | number
+  | null
+  | {
+      url?: string;
+      source_url?: string;
+      sizes?: Record<string, string | { source_url?: string }>;
+    };
+
+export type WordPressTermAcf = {
+  thumbnail?: WordPressAcfImage;
+} & Record<string, unknown>;
+
 export type WordPressTerm = {
   id: number;
   name: string;
@@ -70,7 +84,7 @@ export type WordPressTerm = {
   count: number;
   description?: string;
   parent?: number;
-  acf?: any;
+  acf?: WordPressTermAcf;
 };
 
 export type WordPressUser = {
