@@ -37,21 +37,33 @@ export default async function DynamicPage({ params }: { params: Promise<{ page: 
   }
 
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-10 px-6 py-10 sm:px-10">
+    <main className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col gap-10 px-6 py-10 sm:px-10">
       <h1 className="text-3xl font-bold text-zinc-950 dark:text-zinc-50">{pageTitle}</h1>
 
       <div className="flex flex-col gap-10">
         {subCategories.length === 0 && <p className="text-zinc-500">아직 등록된 컨텐츠가 없습니다.</p>}
 
-        <ul className="flex flex-col gap-3">
-          {subCategories.map((category) => (
-            <li key={category.id} className="flex flex-col gap-4">
-              {/* 주소는 /guide/글슬러그 형태가 되도록 설정합니다. */}
-              <Link href={`/${currentSlug}/${category.slug}`} className="text-lg hover:text-blue-600 transition-colors">
-                {category.name}
-              </Link>
-            </li>
-          ))}
+        <ul className="grid gap-5 grid-cols-2 md:grid-cols-4">
+          {subCategories.map((category) => {
+            // ACF 이미지 설정에 따라 텍스트(URL)로 올 수도 있고 객체로 올 수도 있으므로 둘 다 대응합니다.
+            const thumbnailData = category.acf?.thumbnail;
+            const thumbnailUrl = typeof thumbnailData === "string" ? thumbnailData : thumbnailData?.url || "";
+
+            return (
+              <li key={category.id} className="relative h-[0px] pt-[100%] bg-zinc-200 dark:bg-zinc-800 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <Link
+                  href={`/${currentSlug}/${category.slug}`}
+                  className="absolute top-0 left-0 flex items-center justify-center w-full h-full text-xl font-bold text-white hover:text-blue-300 transition-colors bg-cover bg-center"
+                  style={{
+                    // 이미지가 있으면 어두운 필터를 깔아서 글씨가 잘 보이게 합니다. 없으면 빈 배경
+                    backgroundImage: thumbnailUrl ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${thumbnailUrl}')` : "none",
+                  }}
+                >
+                  {category.name}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </main>

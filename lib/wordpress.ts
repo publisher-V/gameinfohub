@@ -70,6 +70,7 @@ export type WordPressTerm = {
   count: number;
   description?: string;
   parent?: number;
+  acf?: any;
 };
 
 export type WordPressUser = {
@@ -256,8 +257,7 @@ type GraphQLResponse<T> = {
   }[];
 };
 
-const WORDPRESS_URL =
-  process.env.WORDPRESS_URL ?? process.env.NEXT_PUBLIC_WORDPRESS_URL;
+const WORDPRESS_URL = process.env.WORDPRESS_URL ?? process.env.NEXT_PUBLIC_WORDPRESS_URL;
 
 function getWordPressUrl() {
   if (!WORDPRESS_URL) {
@@ -293,10 +293,7 @@ function buildGraphQLUrl() {
   return new URL("/graphql", baseUrl);
 }
 
-async function wpFetch<T>(
-  path: string,
-  params?: FetchParams,
-): Promise<T | null> {
+async function wpFetch<T>(path: string, params?: FetchParams): Promise<T | null> {
   const apiUrl = buildApiUrl(path, params);
 
   if (!apiUrl) {
@@ -317,20 +314,13 @@ async function wpFetch<T>(
     const responseText = await response.text();
     const details = responseText.replace(/\s+/g, " ").trim().slice(0, 180);
 
-    throw new Error(
-      `WordPress API error: ${response.status} from ${apiUrl.origin}${
-        details ? ` - ${details}` : ""
-      }`,
-    );
+    throw new Error(`WordPress API error: ${response.status} from ${apiUrl.origin}${details ? ` - ${details}` : ""}`);
   }
 
   return response.json() as Promise<T>;
 }
 
-async function wpGraphQLFetch<T>(
-  query: string,
-  variables?: Record<string, unknown>,
-): Promise<T | null> {
+async function wpGraphQLFetch<T>(query: string, variables?: Record<string, unknown>): Promise<T | null> {
   const apiUrl = buildGraphQLUrl();
 
   if (!apiUrl) {
@@ -354,21 +344,13 @@ async function wpGraphQLFetch<T>(
     const responseText = await response.text();
     const details = responseText.replace(/\s+/g, " ").trim().slice(0, 180);
 
-    throw new Error(
-      `WordPress GraphQL error: ${response.status} from ${apiUrl.origin}${
-        details ? ` - ${details}` : ""
-      }`,
-    );
+    throw new Error(`WordPress GraphQL error: ${response.status} from ${apiUrl.origin}${details ? ` - ${details}` : ""}`);
   }
 
   const payload = (await response.json()) as GraphQLResponse<T>;
 
   if (payload.errors?.length) {
-    throw new Error(
-      `WordPress GraphQL error: ${payload.errors
-        .map((error) => error.message)
-        .join("; ")}`,
-    );
+    throw new Error(`WordPress GraphQL error: ${payload.errors.map((error) => error.message).join("; ")}`);
   }
 
   return payload.data ?? null;
@@ -383,8 +365,7 @@ export async function getLatestPosts(count = 6) {
 
 export async function getPostBySlug(slug: string) {
   const posts = await wpFetch<WordPressPost[]>("posts", {
-    _fields:
-      "id,date,slug,link,title,excerpt,content,categories,tags,featured_media,yoast_head_json",
+    _fields: "id,date,slug,link,title,excerpt,content,categories,tags,featured_media,yoast_head_json",
     slug,
     per_page: 1,
   });
@@ -394,8 +375,7 @@ export async function getPostBySlug(slug: string) {
 
 export async function getPages(count = 100) {
   return wpFetch<WordPressPage[]>("pages", {
-    _fields:
-      "id,slug,link,status,title,content,parent,menu_order,yoast_head_json",
+    _fields: "id,slug,link,status,title,content,parent,menu_order,yoast_head_json",
     orderby: "menu_order",
     order: "asc",
     per_page: count,
@@ -404,15 +384,14 @@ export async function getPages(count = 100) {
 
 export async function getMediaItems(count = 100) {
   return wpFetch<WordPressMedia[]>("media", {
-    _fields:
-      "id,slug,source_url,mime_type,alt_text,title,media_details",
+    _fields: "id,slug,source_url,mime_type,alt_text,title,media_details",
     per_page: count,
   });
 }
 
 export async function getCategories(count = 100) {
   return wpFetch<WordPressTerm[]>("categories", {
-    _fields: "id,name,slug,count,description,parent",
+    _fields: "id,name,slug,count,description,parent,acf",
     hide_empty: false,
     per_page: count,
   });
@@ -435,8 +414,7 @@ export async function getUsers(count = 100) {
 
 export async function getComments(count = 100) {
   return wpFetch<WordPressComment[]>("comments", {
-    _fields:
-      "id,post,parent,author_name,author_url,date,content",
+    _fields: "id,post,parent,author_name,author_url,date,content",
     per_page: count,
   });
 }
@@ -624,21 +602,9 @@ export async function getGraphQLFrontendData() {
 }
 
 export async function getWordPressFrontendData(): Promise<WordPressFrontendData> {
-  const [
-    posts,
-    pages,
-    media,
-    categories,
-    tags,
-    users,
-    comments,
-    search,
-    navigation,
-    graphql,
-  ] = await Promise.all([
+  const [posts, pages, media, categories, tags, users, comments, search, navigation, graphql] = await Promise.all([
     wpFetch<WordPressPost[]>("posts", {
-      _fields:
-        "id,date,slug,link,title,excerpt,content,categories,tags,featured_media,yoast_head_json",
+      _fields: "id,date,slug,link,title,excerpt,content,categories,tags,featured_media,yoast_head_json",
       per_page: 100,
     }),
     getPages(),
@@ -669,7 +635,10 @@ export async function getWordPressFrontendData(): Promise<WordPressFrontendData>
 }
 
 export function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+  return html
+    .replace(/<[^>]*>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 export function decodeHtml(text: string) {
