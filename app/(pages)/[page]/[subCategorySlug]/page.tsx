@@ -23,14 +23,14 @@ export default async function SubCategoryGuidePage({ params }: { params: Promise
 
   if (!targetCategory) {
     return (
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-10 px-6 py-10 sm:px-10">
+      <main className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-5">
         <h1 className="text-3xl font-bold text-zinc-950 dark:text-zinc-50">카테고리를 찾을 수 없습니다.</h1>
       </main>
     );
   }
 
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-10 px-6 py-10 sm:px-10">
+    <main className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-5">
       <h1 className="text-3xl font-bold text-zinc-950 dark:text-zinc-50">{targetCategory.name}</h1>
       {targetCategory.description && <p className="text-zinc-600 dark:text-zinc-400">{targetCategory.description}</p>}
 
