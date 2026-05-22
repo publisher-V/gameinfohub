@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { getWordPressFrontendData } from "@/lib/wordpress";
-import type { WordPressPost } from "@/lib/wordpress";
+import type { WordPressPost, WordPressTerm } from "@/lib/wordpress";
 
 function DataSection({
   id,
@@ -17,6 +18,18 @@ function DataSection({
       {children}
     </section>
   );
+}
+
+function getPostHref(post: WordPressPost, categories: WordPressTerm[]) {
+  const postCategories = categories.filter((category) => post.categories?.includes(category.id));
+  const childCategory = postCategories.find((category) => category.parent);
+  const parentCategory = childCategory ? categories.find((category) => category.id === childCategory.parent) : undefined;
+
+  if (parentCategory && childCategory) {
+    return `/${parentCategory.slug}/${childCategory.slug}/${post.slug}`;
+  }
+
+  return `/posts/${post.slug}`;
 }
 
 export default async function MainPostsWrapper() {
@@ -44,7 +57,7 @@ export default async function MainPostsWrapper() {
       <ul className="main-post-list">
         {rest.posts.map((post: WordPressPost) => (
           <li key={post.id}>
-            <a href={post.link}>{post.title.rendered}</a>
+            <Link href={getPostHref(post, rest.categories)}>{post.title.rendered}</Link>
           </li>
         ))}
       </ul>

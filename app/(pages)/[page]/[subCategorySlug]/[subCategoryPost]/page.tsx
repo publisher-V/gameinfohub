@@ -1,4 +1,12 @@
-import { getWordPressFrontendData, WordPressPost } from "@/lib/wordpress";
+import { getPostBySlug, getWordPressFrontendData, WordPressPost } from "@/lib/wordpress";
+
+function normalizeSlug(slug: string) {
+  try {
+    return decodeURIComponent(slug);
+  } catch {
+    return slug;
+  }
+}
 
 export default async function SubCategoryPostPage({ params }: { params: Promise<{ subCategoryPost: string }> }) {
   const subCategoryParams = await params;
@@ -8,7 +16,13 @@ export default async function SubCategoryPostPage({ params }: { params: Promise<
 
   try {
     const data = await getWordPressFrontendData();
-    targetPost = data?.rest?.posts?.find((post) => post.slug === subCategoryPost);
+    const normalizedSubCategoryPost = normalizeSlug(subCategoryPost);
+
+    targetPost = data?.rest?.posts?.find((post) => normalizeSlug(post.slug) === normalizedSubCategoryPost);
+
+    if (!targetPost) {
+      targetPost = (await getPostBySlug(normalizedSubCategoryPost)) ?? undefined;
+    }
   } catch (error) {
     console.error("포스트를 가져오지 못했습니다. :", error);
     return null;
@@ -24,8 +38,8 @@ export default async function SubCategoryPostPage({ params }: { params: Promise<
 
   return (
     <main className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-5 max-[1260px]:max-w-none max-[1260px]:px-[30px]">
-      <h1 className="text-3xl font-bold text-zinc-950 dark:text-zinc-50">{targetPost.title.rendered}</h1>
-      {targetPost.content.rendered && <div className="text-zinc-600 dark:text-zinc-400" dangerouslySetInnerHTML={{ __html: targetPost.content.rendered }} />}
+      <h1 className="text-3xl font-bold text-center text-zinc-950 dark:text-zinc-50">{targetPost.title.rendered}</h1>
+      {targetPost.content.rendered && <div className="wp-content" dangerouslySetInnerHTML={{ __html: targetPost.content.rendered }} />}
     </main>
   );
 }

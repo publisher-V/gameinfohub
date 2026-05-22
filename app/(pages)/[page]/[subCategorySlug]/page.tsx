@@ -1,8 +1,9 @@
 import { getWordPressFrontendData, WordPressTerm, WordPressPost } from "@/lib/wordpress";
 import Link from "next/link";
 
-export default async function SubCategoryGuidePage({ params }: { params: Promise<{ subCategorySlug: string }> }) {
+export default async function SubCategoryGuidePage({ params }: { params: Promise<{ page: string; subCategorySlug: string }> }) {
   const subCategoryParams = await params;
+  const pageSlug = subCategoryParams.page;
   const subCategorySlug = subCategoryParams.subCategorySlug;
 
   let targetCategory: WordPressTerm | undefined;
@@ -37,7 +38,7 @@ export default async function SubCategoryGuidePage({ params }: { params: Promise
       <ul className="mt-4 flex flex-col gap-6">
         {posts.map((post) => (
           <li key={post.id} className="border-b border-zinc-200 pb-4 dark:border-zinc-800">
-            <Link href={`${targetCategory.slug}/${post.slug}`} className="group flex flex-col gap-2">
+            <Link href={`/${pageSlug}/${targetCategory.slug}/${post.slug}`} className="group flex flex-col gap-2">
               <h2 className="text-2xl font-bold text-zinc-950 group-hover:text-blue-600 dark:text-zinc-50 dark:group-hover:text-blue-400">{post.title.rendered}</h2>
               <div className="line-clamp-2 text-zinc-600 dark:text-zinc-400" dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
             </Link>

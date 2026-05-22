@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import TopVisual from "@/components/top-visual/top-visual";
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         <TopVisual />
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
