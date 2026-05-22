@@ -15,7 +15,7 @@ export default async function Header() {
   return (
     <header className="mx-auto mb-10 flex h-[48px] w-full max-w-[1200px] items-center">
       <nav className="h-full w-full">
-        <ul className="box-border flex h-full items-center justify-start border border-b-[#4a4a4a] border-l-0 border-r-[#4a4a4a] border-t-[#dadada] bg-[#c0c0c0] shadow-[inset_1px_1px_0_#eeeeee,inset_-1px_-1px_0_#8a8a8a]">
+        <ul className="box-border flex h-full items-center justify-start border border-b-[#4a4a4a] border-l-0 border-b-2 border-r-[#4a4a4a] border-t-[#eee] bg-[#c0c0c0] shadow-[inset_2px_1px_0_#eee,inset_-3px_-3px_0_#777]">
           {pages.map((page) => {
             let href = page.link;
             try {
@@ -28,9 +28,9 @@ export default async function Header() {
             return (
               <li
                 key={page.id}
-                className="box-border flex h-full min-w-[120px] items-center justify-center border border-t-0 border-b-[#5f5f5f] border-l-0 border-r-[#5f5f5f] bg-[#c0c0c0] text-center text-[17px] font-bold text-black shadow-[inset_1px_1px_0_#ffffff,inset_-1px_-1px_0_#9a9a9a] hover:bg-[#cfcfcf]"
+                className="box-border flex h-full min-w-[120px] items-center justify-center border-content border border-b-[#4a4a4a] border-l-0 border-b-0 border-r-[#4a4a4a] border-t-[#eee] bg-[#c0c0c0] text-center text-[17px] font-bold text-black shadow-[inset_2px_0px_0_#eee,inset_-2px_-3px_0_#777] hover:bg-[#cfcfcf] active:border-b-[#f5f5f5] active:border-l-[#5f5f5f] active:border-r-[#f5f5f5] active:border-t-[#5f5f5f] active:shadow-[inset_1px_1px_0_#8a8a8a]"
               >
-                <Link className="flex items-center justify-center w-full h-full" href={href}>
+                <Link className="flex h-full w-full items-center justify-center" href={href}>
                   {page.title.rendered}
                 </Link>
               </li>
