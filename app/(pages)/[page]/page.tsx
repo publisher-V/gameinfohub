@@ -62,13 +62,13 @@ export default async function DynamicPage({ params }: { params: Promise<{ page: 
   }
 
   return (
-    <main className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-5">
+    <main className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-5 max-[1260px]:max-w-none max-[1260px]:px-[30px]">
       <h1 className="text-3xl font-bold text-zinc-950 dark:text-zinc-50">{pageTitle}</h1>
 
       <div className="flex flex-col gap-10">
         {subCategories.length === 0 && <p className="text-zinc-500">아직 등록된 콘텐츠가 없습니다.</p>}
 
-        <ul className="grid grid-cols-1 gap-5 lg:grid-cols-4">
+        <ul className="grid grid-cols-1 gap-5 min-[769px]:max-[1260px]:grid-cols-2 min-[1261px]:grid-cols-4">
           {subCategories.map((category) => {
             const thumbnailUrl = getCategoryThumbnailUrl(category, allMedia);
             const postCount = countPostsInCategory(posts, category.id);
@@ -81,7 +81,7 @@ export default async function DynamicPage({ params }: { params: Promise<{ page: 
                     <p className="text-black text-[16px]">작성된 글 : {postCount}개</p>
                   </div>
 
-                  <div className="mb-3 flex w-full flex-col gap-3 lg:flex-row">
+                  <div className="mb-3 flex w-full flex-col gap-3 md:flex-row">
                     {thumbnailUrl && (
                       <figure className="relative aspect-[16/9] w-full overflow-hidden">
                         <Image src={thumbnailUrl} alt={category.name} fill className="object-cover" />
