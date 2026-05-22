@@ -46,7 +46,7 @@ body {
   --wp--preset--color--vivid-purple: #9b51e0;
   color: var(--foreground);
   font-size: 1rem;
-  line-height: 1.8;
+  line-height: 1.5;
   overflow-wrap: anywhere;
 }
 
@@ -61,6 +61,7 @@ body {
 
 .wp-content p {
   margin: 15px 0;
+  text-wrap-style: pretty;
 }
 
 .wp-content h2,
@@ -456,5 +457,12 @@ body {
   .wp-content th,
   .wp-content td {
     border-color: #3f3f46;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .wp-content p {
+    margin: 10px 0;
+    font-size: 0.9rem;
   }
 }

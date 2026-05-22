@@ -38,7 +38,7 @@ export default async function SubCategoryPostPage({ params }: { params: Promise<
 
   return (
     <main className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-5 max-[1260px]:max-w-none max-[1260px]:px-[30px]">
-      <h1 className="text-3xl font-bold text-center text-zinc-950 dark:text-zinc-50">{targetPost.title.rendered}</h1>
+      <h1 className="text-3xl font-bold text-center text-zinc-950 dark:text-zinc-50 max-[769px]:text-2xl">{targetPost.title.rendered}</h1>
       {targetPost.content.rendered && <div className="wp-content" dangerouslySetInnerHTML={{ __html: targetPost.content.rendered }} />}
     </main>
   );
