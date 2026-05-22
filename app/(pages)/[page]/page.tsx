@@ -1,6 +1,8 @@
-import { getWordPressFrontendData, WordPressPage, WordPressPost, WordPressTerm } from "@/lib/wordpress";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { getWordPressFrontendData, WordPressPage, WordPressPost, WordPressTerm } from "@/lib/wordpress";
 
 function getImageSizeUrl(size: string | { source_url?: string } | undefined) {
   if (typeof size === "string") {
@@ -32,6 +34,46 @@ function countPostsInCategory(posts: WordPressPost[], categoryId: number) {
   return posts.filter((post) => post.categories?.includes(categoryId)).length;
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ page: string }> }): Promise<Metadata> {
+  const { page: currentSlug } = await params;
+
+  try {
+    const data = await getWordPressFrontendData();
+    const currentPage = data.rest.pages.find((page) => page.slug === currentSlug);
+    const parentCategory = data.rest.categories.find((category) => category.slug === currentSlug && !category.parent);
+
+    if (!currentPage && !parentCategory) {
+      return {
+        title: "Not Found",
+        robots: {
+          index: false,
+          follow: false,
+        },
+      };
+    }
+
+    const title = currentPage?.title.rendered ?? parentCategory?.name ?? "Game Info Hub";
+    const description = parentCategory?.description || "Game Info Hub의 게임 소식과 공략 글을 확인하세요.";
+
+    return {
+      title,
+      description,
+      alternates: {
+        canonical: `/${currentSlug}`,
+      },
+      openGraph: {
+        title,
+        description,
+        url: `/${currentSlug}`,
+      },
+    };
+  } catch {
+    return {
+      title: "Game Info Hub",
+    };
+  }
+}
+
 export default async function DynamicPage({ params }: { params: Promise<{ page: string }> }) {
   const resolvedParams = await params;
   const currentSlug = resolvedParams.page;
@@ -48,17 +90,20 @@ export default async function DynamicPage({ params }: { params: Promise<{ page: 
     posts = data?.rest?.posts || [];
 
     const currentPage = pages.find((page: WordPressPage) => page.slug === currentSlug);
-    if (currentPage) {
-      pageTitle = currentPage.title.rendered;
+    const parentCategory = allCategories.find((category: WordPressTerm) => category.slug === currentSlug && !category.parent);
+
+    if (!currentPage && !parentCategory) {
+      notFound();
     }
 
-    const parentCategory = allCategories.find((category: WordPressTerm) => category.slug === currentSlug);
+    pageTitle = currentPage?.title.rendered ?? parentCategory?.name ?? "";
+
     if (parentCategory) {
       subCategories = allCategories.filter((category: WordPressTerm) => category.parent === parentCategory.id);
     }
   } catch (error) {
-    console.error("페이지 데이터를 가져오지 못했습니다.", error);
-    return null;
+    console.error("Could not load page data.", error);
+    notFound();
   }
 
   return (

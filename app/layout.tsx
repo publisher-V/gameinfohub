@@ -4,10 +4,42 @@ import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import TopVisual from "@/components/top-visual/top-visual";
 
+const description = "각종 게임의 소식과 공략 정보를 한곳에서 확인하세요.";
+
 export const metadata: Metadata = {
-  title: "Game Info Hub",
+  metadataBase: new URL("https://gameinfohub.com"),
+  title: {
+    default: "Game Info Hub",
+    template: "%s | Game Info Hub",
+  },
   applicationName: "Game Info Hub",
-  description: "각종 게임의 소식을 접해보세요.",
+  description,
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://gameinfohub.com/",
+    siteName: "Game Info Hub",
+    title: "Game Info Hub",
+    description,
+  },
+  twitter: {
+    card: "summary",
+    title: "Game Info Hub",
+    description,
+  },
   appleWebApp: {
     title: "Game Info Hub",
   },
