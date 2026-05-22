@@ -68,7 +68,7 @@ export default async function DynamicPage({ params }: { params: Promise<{ page: 
       <div className="flex flex-col gap-10">
         {subCategories.length === 0 && <p className="text-zinc-500">아직 등록된 콘텐츠가 없습니다.</p>}
 
-        <ul className="grid grid-cols-1 gap-5 min-[769px]:max-[1260px]:grid-cols-2 min-[1261px]:grid-cols-4">
+        <ul className="grid grid-cols-4 gap-5 max-[769px]:grid-cols-1 max-[1261px]:grid-cols-2">
           {subCategories.map((category) => {
             const thumbnailUrl = getCategoryThumbnailUrl(category, allMedia);
             const postCount = countPostsInCategory(posts, category.id);
