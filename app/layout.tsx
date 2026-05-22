@@ -5,7 +5,11 @@ import TopVisual from "@/components/top-visual/top-visual";
 
 export const metadata: Metadata = {
   title: "Game Info Hub",
+  applicationName: "Game Info Hub",
   description: "각종 게임의 소식을 접해보세요.",
+  appleWebApp: {
+    title: "Game Info Hub",
+  },
 };
 
 export default function RootLayout({
