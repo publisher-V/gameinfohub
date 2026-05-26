@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getWordPressFrontendData } from "@/lib/wordpress";
 
-const SITE_URL = "https://gameinfohub.com";
+const SITE_URL = "https://www.gameinfohub.com";
 
 function siteUrl(path = "/") {
   return new URL(path, SITE_URL).toString();
