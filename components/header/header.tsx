@@ -1,43 +1,5 @@
 import Link from "next/link";
-import { getWordPressFrontendData, type WordPressPage } from "@/lib/wordpress";
-
-type NavItem = {
-  label: string;
-  candidates: string[];
-  active?: boolean;
-};
-
-const NAV_ITEMS: NavItem[] = [
-  { label: "HOME", candidates: ["/"], active: true },
-  { label: "GAMES", candidates: ["games", "game"] },
-  { label: "PLATFORMS", candidates: ["platforms", "platform"] },
-  { label: "COLLECTIONS", candidates: ["collections", "collection"] },
-  { label: "ARTICLES", candidates: ["articles", "news", "guide"] },
-  { label: "COMMUNITY", candidates: ["community", "forum"] },
-  { label: "ABOUT", candidates: ["about", "about-us"] },
-];
-
-function normalizeText(value: string) {
-  return value.toLowerCase().replace(/[^a-z0-9]+/g, "");
-}
-
-function toPath(link: string) {
-  try {
-    return new URL(link, "http://localhost").pathname;
-  } catch {
-    return "/";
-  }
-}
-
-function resolveNavHref(pages: WordPressPage[], candidates: string[], fallback = "/") {
-  const matchedPage = pages.find((page) => {
-    const slug = normalizeText(page.slug);
-    const title = normalizeText(page.title.rendered);
-    return candidates.some((candidate) => slug === normalizeText(candidate) || title.includes(normalizeText(candidate)));
-  });
-
-  return matchedPage ? toPath(matchedPage.link) : fallback;
-}
+import { getWordPressFrontendData, WordPressPage } from "@/lib/wordpress";
 
 export default async function Header() {
   let pages: WordPressPage[] = [];
@@ -46,64 +8,36 @@ export default async function Header() {
     const data = await getWordPressFrontendData();
     pages = data?.rest?.pages || [];
   } catch (error) {
-    console.error("Failed to load page navigation.", error);
+    console.error("페이지 데이터를 가져오지 못했습니다:", error);
     return null;
   }
 
-  const navItems = NAV_ITEMS.map((item) => ({
-    ...item,
-    href: item.candidates[0] === "/" ? "/" : resolveNavHref(pages, item.candidates),
-  }));
-
   return (
-    <header className="mx-auto w-full max-w-[1200px] px-4 pb-5 max-[1260px]:max-w-none max-[1260px]:px-[30px]">
-      <div className="retro-frame px-4 py-4 sm:px-5 sm:py-5">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-          <div className="flex min-w-0 flex-col">
-            <Link href="/" className="inline-flex flex-col text-[#15110d]">
-              <span className="text-[38px] leading-[0.86] sm:text-[46px] md:text-[56px]">GAME</span>
-              <span className="text-[38px] leading-[0.86] sm:text-[46px] md:text-[56px]">INFO HUB</span>
-            </Link>
-            <p className="mt-2 text-[11px] uppercase tracking-[0.28em] text-[#5f4b35]">
-              Retro games database & archive
-            </p>
-          </div>
+    <header className="mx-auto mb-10 flex w-full max-w-[1200px] items-center md:h-[48px] max-[1260px]:max-w-none max-[1260px]:px-[30px]">
+      <nav className="h-full w-full">
+        <ul className="box-border flex flex-wrap items-center justify-start border border-b-2 border-b-[#4a4a4a] border-l-0 border-r-[#4a4a4a] border-t-[#eee] bg-[#c0c0c0] shadow-[inset_2px_1px_0_#eee,inset_-3px_-3px_0_#777] md:h-full">
+          {pages.map((page) => {
+            let href = page.link;
+            try {
+              href = new URL(page.link, "http://localhost").pathname;
+            } catch (error) {
+              console.error("페이지 링크를 가져오지 못했습니다:", error);
+              return null;
+            }
 
-          <div className="flex min-w-0 flex-1 flex-col gap-4 lg:items-end">
-            <nav aria-label="Primary" className="w-full overflow-x-auto">
-              <ul className="flex min-w-max items-center gap-6 border-b border-[#6f5338] pb-2 text-[13px] uppercase tracking-[0.22em] text-[#1b1510]">
-                {navItems.map((item) => (
-                  <li key={item.label} className="shrink-0">
-                    <Link
-                      href={item.href}
-                      data-active={item.active ? "true" : "false"}
-                      className="retro-nav-link"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            <div className="retro-search flex w-full max-w-[320px] items-stretch overflow-hidden" role="search" aria-label="Search games">
-              <input
-                type="search"
-                aria-label="Search games"
-                placeholder="Search games..."
-                className="min-w-0 flex-1 px-4 py-3 text-[13px] uppercase tracking-[0.18em]"
-              />
-              <button
-                type="button"
-                className="retro-button flex w-12 items-center justify-center text-[16px]"
-                aria-label="Search"
+            return (
+              <li
+                key={page.id}
+                className="box-border flex h-12 w-1/2 items-center justify-center border border-b-0 border-b-[#4a4a4a] border-l-0 border-r-[#4a4a4a] border-t-[#eee] bg-[#c0c0c0] text-center text-[17px] font-bold text-black shadow-[inset_2px_0px_0_#eee,inset_-2px_-3px_0_#777] hover:bg-[#cfcfcf] active:border-b-[#f5f5f5] active:border-l-[#5f5f5f] active:border-r-[#f5f5f5] active:border-t-[#5f5f5f] active:shadow-[inset_1px_1px_0_#8a8a8a] sm:w-1/3 md:h-full md:w-1/6"
               >
-                ⌕
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+                <Link className="flex h-full w-full items-center justify-center" href={href}>
+                  {page.title.rendered}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </header>
   );
 }
