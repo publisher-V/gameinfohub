@@ -1,6 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "gameinfohub.com",
+          },
+        ],
+        destination: "https://www.gameinfohub.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
@@ -10,6 +25,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "gameinfohub.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.gameinfohub.com",
       },
     ],
   },
