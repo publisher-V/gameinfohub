@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #c0c0c0;
-  --foreground: #171717;
+  --background: #dac79d;
+  --foreground: #17120d;
+  --paper: #ead9b6;
+  --paper-mid: #ddc79e;
+  --paper-deep: #c8af81;
+  --ink: #17120d;
+  --ink-soft: #5d4a33;
+  --frame-dark: #2f1f14;
+  --frame-mid: #6f5338;
+  --frame-light: #f3e5c6;
+  --accent: #9d5633;
 }
 
 @theme inline {
@@ -12,17 +21,148 @@
   --font-mono: "NeoDunggeunmo Code", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.45), transparent 38%),
+    linear-gradient(180deg, #efdfbe 0%, #e2c99d 48%, #d1b486 100%);
 }
 
 body {
-  background: var(--background);
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.42), transparent 34%),
+    linear-gradient(180deg, #ecdfbf 0%, #dfc99f 44%, #ceb285 100%);
   color: var(--foreground);
   font-family: "NeoDunggeunmo Code", sans-serif;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(20, 12, 8, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 12, 8, 0.028) 1px, transparent 1px),
+    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.12), transparent 24%);
+  background-size: 100% 3px, 4px 100%, auto, auto;
+  opacity: 0.7;
+}
+
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  box-shadow: inset 0 0 140px rgba(54, 33, 12, 0.16);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(157, 86, 51, 0.28);
+  color: var(--ink);
+}
+
+.retro-frame {
+  border: 2px solid var(--frame-dark);
+  background:
+    linear-gradient(180deg, rgba(255, 246, 220, 0.98), rgba(225, 202, 159, 0.98));
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.75),
+    inset -2px -2px 0 rgba(64, 41, 23, 0.28),
+    0 2px 0 rgba(43, 29, 17, 0.18);
+}
+
+.retro-subframe {
+  border: 1px solid rgba(47, 31, 20, 0.92);
+  background:
+    linear-gradient(180deg, rgba(247, 236, 205, 0.97), rgba(222, 201, 158, 0.97));
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.75),
+    inset -1px -1px 0 rgba(64, 41, 23, 0.18);
+}
+
+.retro-card {
+  border: 1px solid rgba(47, 31, 20, 0.95);
+  background:
+    linear-gradient(180deg, rgba(247, 236, 207, 0.98), rgba(225, 202, 160, 0.98));
+  box-shadow:
+    1px 1px 0 rgba(47, 31, 20, 0.18),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.66),
+    inset -1px -1px 0 rgba(84, 58, 33, 0.18);
+}
+
+.retro-card:hover {
+  transform: translateY(-1px);
+}
+
+.retro-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0.2rem;
+  color: #191510;
+  transition: color 120ms ease;
+}
+
+.retro-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.15rem;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  background: var(--accent);
+  transition: transform 140ms ease;
+}
+
+.retro-nav-link[data-active="true"] {
+  color: var(--accent);
+}
+
+.retro-nav-link[data-active="true"]::after,
+.retro-nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.retro-search {
+  border: 1px solid rgba(47, 31, 20, 0.95);
+  background: linear-gradient(180deg, rgba(248, 239, 214, 0.98), rgba(222, 198, 154, 0.98));
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.68),
+    inset -1px -1px 0 rgba(84, 58, 33, 0.16);
+}
+
+.retro-search input {
+  background: transparent;
+  color: var(--ink);
+  outline: none;
+}
+
+.retro-button {
+  border: 1px solid rgba(47, 31, 20, 0.95);
+  background:
+    linear-gradient(180deg, #aa6138 0%, #8f4729 100%);
+  color: #f8e8c7;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 226, 192, 0.34),
+    inset -1px -1px 0 rgba(58, 29, 16, 0.46);
+}
+
+.retro-button:hover {
+  filter: brightness(1.05);
 }
 
 .wp-content {

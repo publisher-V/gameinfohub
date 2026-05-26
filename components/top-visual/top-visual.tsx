@@ -2,13 +2,14 @@ import Link from "next/link";
 
 export default function TopVisual() {
   return (
-    <section id="topVisual" className="mx-auto flex h-[120px] w-full max-w-[1200px] items-center justify-center px-4 md:h-[150px] max-[1260px]:max-w-none max-[1260px]:px-[30px]">
-      <Link
-        href="/"
-        className="relative z-0 inline-block text-center text-4xl font-bold leading-none text-[#141414] [text-shadow:1px_1px_0_#f1f1f1,2px_2px_0_#d3d3d3,3px_3px_0_#a8a8a8,4px_4px_0_#6f6f6f,6px_7px_0_#333333,8px_10px_12px_#00000061] sm:text-5xl lg:text-7xl"
-      >
-        GAME INFO HUB
-      </Link>
+    <section id="topVisual" className="mx-auto w-full max-w-[1200px] px-4 pt-3 max-[1260px]:max-w-none max-[1260px]:px-[30px]">
+      <div className="retro-frame flex items-center justify-between gap-4 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-[#18120d]">
+        <p className="truncate">Welcome to the world of retro games</p>
+        <Link href="/" className="inline-flex items-center gap-3 whitespace-nowrap">
+          <span>Press Start</span>
+          <span aria-hidden className="inline-block h-3.5 w-3.5 border border-current" />
+        </Link>
+      </div>
     </section>
   );
 }
