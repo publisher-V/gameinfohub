@@ -56,8 +56,10 @@ export default async function MainPostsWrapper() {
     <DataSection id="mainPostsWrapper" title="Latest Posts">
       <ul className="main-post-list">
         {rest.posts.map((post: WordPressPost) => (
-          <li key={post.id}>
-            <Link href={getPostHref(post, rest.categories)}>{post.title.rendered}</Link>
+          <li key={post.id} className="border-t-1 h-32">
+            <Link className="flex w-full h-full py-4 hover:text-[#702a1a]" href={getPostHref(post, rest.categories)}>
+              {post.title.rendered}
+            </Link>
           </li>
         ))}
       </ul>

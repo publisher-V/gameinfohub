@@ -119,9 +119,10 @@ export default async function DynamicPage({ params }: { params: Promise<{ page: 
             const postCount = countPostsInCategory(posts, category.id);
 
             return (
-              <li key={category.id} className="relative overflow-hidden border-2 border-b-[#4a4a4a] border-l-[#eee] border-r-[#4a4a4a] border-t-[#eee] bg-[#cacac5] shadow-[inset_1px_1px_0_#eee,inset_-3px_-3px_0_#777]">
+              // <li key={category.id} className="relative overflow-hidden border-2 border-b-[#4a4a4a] border-l-[#eee] border-r-[#4a4a4a] border-t-[#eee] bg-[#cacac5] shadow-[inset_1px_1px_0_#eee,inset_-3px_-3px_0_#777]">
+              <li key={category.id} className="relative overflow-hidden border-2 bg-transparent radius-[0.5rem] rounded-[0.5rem] shadow-[4px_4px_0_rgba(23,23,23,0.4)]">
                 <div className="box-border h-full w-full bg-cover bg-center p-4 text-xl font-bold text-white transition-colors">
-                  <div className="mb-3 flex flex-col gap-2 text-center sm:flex-row sm:items-center sm:justify-between">
+                  <div className="mb-3 flex flex-col gap-2">
                     <p className="text-black text-[16px]">{category.name}</p>
                     <p className="text-black text-[16px]">작성된 글 : {postCount}개</p>
                   </div>
@@ -135,10 +136,7 @@ export default async function DynamicPage({ params }: { params: Promise<{ page: 
                   </div>
 
                   <div className="flex justify-end">
-                    <Link
-                      href={`/${currentSlug}/${category.slug}`}
-                      className="box-border inline-flex h-7 min-w-[92px] items-center justify-center border border-b-[#5f5f5f] border-l-[#f5f5f5] border-r-[#5f5f5f] border-t-[#f5f5f5] bg-[#c0c0c0] px-3 text-[13px] font-bold text-black shadow-[inset_1px_1px_0_#eee,inset_-1px_-1px_0_#9a9a9a] hover:bg-[#cfcfcf] active:border-b-[#f5f5f5] active:border-l-[#5f5f5f] active:border-r-[#f5f5f5] active:border-t-[#5f5f5f] active:shadow-[inset_1px_1px_0_#8a8a8a]"
-                    >
+                    <Link href={`/${currentSlug}/${category.slug}`} className="box-border inline-flex h-7 min-w-[92px] items-center justify-center border-2 bg-transparent px-3 text-[13px] font-bold text-black">
                       자세히 보기
                     </Link>
                   </div>

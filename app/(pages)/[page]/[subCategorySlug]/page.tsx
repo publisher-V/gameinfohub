@@ -76,9 +76,9 @@ export default async function SubCategoryGuidePage({ params }: { params: Promise
 
       <ul className="mt-4 flex flex-col gap-6">
         {posts.map((post) => (
-          <li key={post.id} className="border-b border-zinc-200 pb-4 dark:border-zinc-800">
+          <li key={post.id} className="border-t-1 py-4 dark:border-zinc-800">
             <Link href={`/${pageSlug}/${targetCategory.slug}/${post.slug}`} className="group flex flex-col gap-2">
-              <h2 className="text-2xl font-bold text-zinc-950 group-hover:text-blue-600 dark:text-zinc-50 dark:group-hover:text-blue-400">{post.title.rendered}</h2>
+              <h2 className="text-2xl font-bold text-zinc-950 group-hover:text-[#702a1a] dark:text-zinc-50 dark:group-hover:text-blue-400">{post.title.rendered}</h2>
               <div className="line-clamp-2 text-zinc-600 dark:text-zinc-400" dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
             </Link>
           </li>
