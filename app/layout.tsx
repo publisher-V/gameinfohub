@@ -5,23 +5,29 @@ import Header from "@/components/header/header";
 import TopVisual from "@/components/top-visual/top-visual";
 import PressStart from "@/components/press-start/press-start";
 
+const siteUrl = "https://www.gameinfohub.com";
+const siteName = "Game Info Hub";
 const description = "각종 게임의 소식과 공략 정보를 한곳에서 확인하세요.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.gameinfohub.com"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Game Info Hub",
-    template: "%s | Game Info Hub",
+    default: siteName,
+    template: `%s | ${siteName}`,
   },
-  applicationName: "Game Info Hub",
+  applicationName: siteName,
   description,
+  manifest: "/manifest.webmanifest",
   alternates: {
     canonical: "/",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: [{ url: "/favicon.ico" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   robots: {
     index: true,
@@ -36,18 +42,18 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://www.gameinfohub.com/",
-    siteName: "Game Info Hub",
-    title: "Game Info Hub",
+    url: siteUrl,
+    siteName,
+    title: siteName,
     description,
   },
   twitter: {
     card: "summary",
-    title: "Game Info Hub",
+    title: siteName,
     description,
   },
   appleWebApp: {
-    title: "Game Info Hub",
+    title: siteName,
   },
 };
 
