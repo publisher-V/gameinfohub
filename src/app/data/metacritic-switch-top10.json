@@ -1,0 +1,74 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "젤다의 전설 : 브레스 오브 더 와일드",
+      "score": 97,
+      "releaseDate": "2017-03-03",
+      "url": "https://www.metacritic.com/game/the-legend-of-zelda-breath-of-the-wild/"
+    },
+    {
+      "id": 2,
+      "title": "슈퍼마리오 오디세이",
+      "score": 97,
+      "releaseDate": "2017-10-27",
+      "url": "https://www.metacritic.com/game/super-mario-odyssey/"
+    },
+    {
+      "id": 3,
+      "title": "파타 모르가나의 저택 - 드림 오브 더 리벤던트 에디션",
+      "score": 96,
+      "releaseDate": "2021-04-09",
+      "url": "https://www.metacritic.com/game/the-house-in-fata-morgana-dreams-of-the-revenants/"
+    },
+    {
+      "id": 4,
+      "title": "젤다의 전설 : 티어스 오브 더 킹덤",
+      "score": 96,
+      "releaseDate": "2023-05-12",
+      "url": "https://www.metacritic.com/game/the-legend-of-zelda-tears-of-the-kingdom/"
+    },
+    {
+      "id": 5,
+      "title": "포탈 : 컴패니언 컬렉션",
+      "score": 95,
+      "releaseDate": "2022-06-28",
+      "url": "https://www.metacritic.com/game/portal-companion-collection/"
+    },
+    {
+      "id": 6,
+      "title": "테트리스 이펙트",
+      "score": 94,
+      "releaseDate": "2021-10-08",
+      "url": "https://www.metacritic.com/game/tetris-effect-connected/"
+    },
+    {
+      "id": 7,
+      "title": "메트로이드 프라임 리마스터",
+      "score": 94,
+      "releaseDate": "2023-02-08",
+      "url": "https://www.metacritic.com/game/metroid-prime-remastered/"
+    },
+    {
+      "id": 8,
+      "title": "페르소나5 더 로열",
+      "score": 94,
+      "releaseDate": "2022-10-21",
+      "url": "https://www.metacritic.com/game/persona-5-royal/"
+    },
+    {
+      "id": 9,
+      "title": "하데스",
+      "score": 93,
+      "releaseDate": "2020-09-17",
+      "url": "https://www.metacritic.com/game/hades/"
+    },
+    {
+      "id": 10,
+      "title": "디비니티 : 오리지널 씬2 - 디피니티브 에디션",
+      "score": 93,
+      "releaseDate": "2019-09-04",
+      "url": "https://www.metacritic.com/game/divinity-original-sin-ii-definitive-edition/"
+    }
+  ]
+}

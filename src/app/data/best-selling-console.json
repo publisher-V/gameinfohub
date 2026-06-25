@@ -1,0 +1,84 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "플레이스테이션2",
+      "score": "1억 6000만",
+      "releaseDate": "2000",
+      "url": "https://en.wikipedia.org/wiki/PlayStation_2",
+      "rank": "1"
+    },
+    {
+      "id": 2,
+      "title": "닌텐도 스위치",
+      "score": "1억 5592만",
+      "releaseDate": "2017",
+      "url": "https://en.wikipedia.org/wiki/Nintendo_Switch",
+      "rank": "2"
+    },
+    {
+      "id": 3,
+      "title": "닌텐도 DS",
+      "score": "1억 5402만",
+      "releaseDate": "2004",
+      "url": "https://en.wikipedia.org/wiki/Nintendo_DS",
+      "rank": "3"
+    },
+    {
+      "id": 4,
+      "title": "게임보이 & 게임보이 컬러",
+      "score": "1억 1869만",
+      "releaseDate": "1989, 1998",
+      "url": "https://en.wikipedia.org/wiki/Game_Boy",
+      "rank": "4"
+    },
+    {
+      "id": 5,
+      "title": "플레이스테이션4",
+      "score": "1억 1720만",
+      "releaseDate": "2013",
+      "url": "https://en.wikipedia.org/wiki/PlayStation_4",
+      "rank": "5"
+    },
+    {
+      "id": 6,
+      "title": "플레이스테이션",
+      "score": "1억 249만",
+      "releaseDate": "1994",
+      "url": "https://en.wikipedia.org/wiki/PlayStation_(console)",
+      "rank": "6"
+    },
+    {
+      "id": 7,
+      "title": "Wii",
+      "score": "1억 163만",
+      "releaseDate": "2006",
+      "url": "https://en.wikipedia.org/wiki/Wii",
+      "rank": "7"
+    },
+    {
+      "id": 8,
+      "title": "플레이스테이션5",
+      "score": "9370만",
+      "releaseDate": "2020",
+      "url": "https://en.wikipedia.org/wiki/PlayStation_5",
+      "rank": "8"
+    },
+    {
+      "id": 9,
+      "title": "플레이스테이션3",
+      "score": "8740만",
+      "releaseDate": "2006",
+      "url": "https://en.wikipedia.org/wiki/PlayStation_3",
+      "rank": "9"
+    },
+    {
+      "id": 10,
+      "title": "xbox360",
+      "score": "8400만",
+      "releaseDate": "2005",
+      "url": "https://en.wikipedia.org/wiki/Xbox_360",
+      "rank": "10"
+    }
+  ]
+}

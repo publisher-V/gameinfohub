@@ -1,0 +1,74 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "발더스 게이트3",
+      "score": 99,
+      "releaseDate": "2023-12-08",
+      "url": "https://www.metacritic.com/game/baldurs-gate-3/"
+    },
+    {
+      "id": 2,
+      "title": "엘든 링",
+      "score": 96,
+      "releaseDate": "2022-02-25",
+      "url": "https://www.metacritic.com/game/elden-ring/"
+    },
+    {
+      "id": 3,
+      "title": "엘든 링 : 황금 나무의 그림자",
+      "score": 95,
+      "releaseDate": "2024-06-21",
+      "url": "https://www.metacritic.com/game/elden-ring-shadow-of-the-erdtree/"
+    },
+    {
+      "id": 4,
+      "title": "하데스2",
+      "score": 95,
+      "releaseDate": "2026-04-14",
+      "url": "https://www.metacritic.com/game/hades-ii/"
+    },
+    {
+      "id": 5,
+      "title": "페르소나5 더 로열",
+      "score": 94,
+      "releaseDate": "2022-10-21",
+      "url": "https://www.metacritic.com/game/persona-5-royal/"
+    },
+    {
+      "id": 6,
+      "title": "더 위쳐3 : 와일드 헌트 - 컴플리트 에디션",
+      "score": 94,
+      "releaseDate": "2023-01-26",
+      "url": "https://www.metacritic.com/game/the-witcher-3-wild-hunt-complete-edition/"
+    },
+    {
+      "id": 7,
+      "title": "하데스",
+      "score": 93,
+      "releaseDate": "2021-08-13",
+      "url": "https://www.metacritic.com/game/hades/"
+    },
+    {
+      "id": 8,
+      "title": "더 스탠리 패러블 : 울트라 디럭스",
+      "score": 93,
+      "releaseDate": "2022-04-27",
+      "url": "https://www.metacritic.com/game/the-stanley-parable-ultra-deluxe/"
+    },
+    {
+      "id": 9,
+      "title": "스플릿 픽션",
+      "score": 93,
+      "releaseDate": "2025-03-06",
+      "url": "https://www.metacritic.com/game/split-fiction/"
+    },
+    {
+      "id": 10,
+      "title": "바이오하자드 레퀴엠",
+      "score": 93,
+      "releaseDate": "2026-02-27",
+      "url": "https://www.metacritic.com/game/resident-evil-requiem/"
+    }
+  ]
+}

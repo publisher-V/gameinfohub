@@ -1,0 +1,94 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "테트리스",
+      "score": "5억 2천만 장",
+      "releaseDate": "1988",
+      "url": "https://ko.wikipedia.org/wiki/%ED%85%8C%ED%8A%B8%EB%A6%AC%EC%8A%A4",
+      "rank": "1",
+      "cavity": true
+    },
+    {
+      "id": 2,
+      "title": "마인크래프트",
+      "score": "3억 5천만 장",
+      "releaseDate": "2011",
+      "url": "https://ko.wikipedia.org/wiki/%EB%A7%88%EC%9D%B8%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8",
+      "rank": "1",
+      "cavity": true
+    },
+    {
+      "id": 3,
+      "title": "GTA5",
+      "score": "2억 3천만 장",
+      "releaseDate": "2013",
+      "url": "https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%9C%EB%93%9C_%ED%85%8C%ED%94%84%ED%8A%B8_%EC%98%A4%ED%86%A0_V",
+      "rank": "2"
+    },
+    {
+      "id": 4,
+      "title": "레드 데드 리뎀션2",
+      "score": "8500만 장",
+      "releaseDate": "2018",
+      "url": "https://ko.wikipedia.org/wiki/%EB%A0%88%EB%93%9C_%EB%8D%B0%EB%93%9C_%EB%A6%AC%EB%8E%80%EC%85%98_2",
+      "rank": "3"
+    },
+    {
+      "id": 5,
+      "title": "Wii 스포츠",
+      "score": "8290만 장",
+      "releaseDate": "2006",
+      "url": "https://ko.wikipedia.org/wiki/Wii_%EC%8A%A4%ED%8F%AC%EC%B8%A0",
+      "rank": "4"
+    },
+    {
+      "id": 6,
+      "title": "마리오 카트8",
+      "score": "7954만 장",
+      "releaseDate": "2014",
+      "url": "https://ko.wikipedia.org/wiki/%EB%A7%88%EB%A6%AC%EC%98%A4_%EC%B9%B4%ED%8A%B8_8",
+      "rank": "5"
+    },
+    {
+      "id": 7,
+      "title": "배틀그라운드",
+      "score": "7500만 장",
+      "releaseDate": "2017",
+      "url": "https://ko.wikipedia.org/wiki/%EB%B0%B0%ED%8B%80%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C_(%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)",
+      "rank": "6"
+    },
+    {
+      "id": 8,
+      "title": "테라리아",
+      "score": "7000만 장",
+      "releaseDate": "2011",
+      "url": "https://ko.wikipedia.org/wiki/%ED%85%8C%EB%9D%BC%EB%A6%AC%EC%95%84",
+      "rank": "7"
+    },
+    {
+      "id": 9,
+      "title": "더 위쳐3 : 와일드 헌트",
+      "score": "6500만 장",
+      "releaseDate": "2015",
+      "url": "https://ko.wikipedia.org/wiki/%EB%8D%94_%EC%9C%84%EC%B3%90_3:_%EC%99%80%EC%9D%BC%EB%93%9C_%ED%97%8C%ED%8A%B8",
+      "rank": "8"
+    },
+    {
+      "id": 10,
+      "title": "슈퍼 마리오브라더스",
+      "score": "5800만 장",
+      "releaseDate": "1985",
+      "url": "https://ko.wikipedia.org/wiki/%EC%8A%88%ED%8D%BC_%EB%A7%88%EB%A6%AC%EC%98%A4%EB%B8%8C%EB%9D%BC%EB%8D%94%EC%8A%A4",
+      "rank": "9"
+    },
+    {
+      "id": 11,
+      "title": "휴먼 : 폴 플랫",
+      "score": "5500만 장",
+      "releaseDate": "2016",
+      "url": "https://ko.wikipedia.org/wiki/%ED%9C%B4%EB%A8%BC:_%ED%8F%B4_%ED%94%8C%EB%9E%AB",
+      "rank": "10"
+    }
+  ]
+}

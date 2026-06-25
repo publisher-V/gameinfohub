@@ -1,0 +1,74 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "엘든 링",
+      "score": 96,
+      "releaseDate": "2022-02-25",
+      "url": "https://www.metacritic.com/game/elden-ring/"
+    },
+    {
+      "id": 2,
+      "title": "발더스 게이트3",
+      "score": 96,
+      "releaseDate": "2023-09-06",
+      "url": "https://www.metacritic.com/game/baldurs-gate-3/"
+    },
+    {
+      "id": 3,
+      "title": "아스트로 봇",
+      "score": 94,
+      "releaseDate": "2024-09-06",
+      "url": "https://www.metacritic.com/game/astro-bot/"
+    },
+    {
+      "id": 4,
+      "title": "엘든 링 : 황금 나무의 그림자",
+      "score": 94,
+      "releaseDate": "2024-06-21",
+      "url": "https://www.metacritic.com/game/elden-ring-shadow-of-the-erdtree/"
+    },
+    {
+      "id": 5,
+      "title": "더 위쳐3 : 와일드 헌트  - 컴플리트 에디션",
+      "score": 94,
+      "releaseDate": "2022-12-14",
+      "url": "https://www.metacritic.com/game/the-witcher-3-wild-hunt-complete-edition/"
+    },
+    {
+      "id": 6,
+      "title": "메타포 : 리판타지오",
+      "score": 94,
+      "releaseDate": "2024-10-11",
+      "url": "https://www.metacritic.com/game/metaphor-refantazio/"
+    },
+    {
+      "id": 7,
+      "title": "갓 오브 워 : 라그나로크",
+      "score": 94,
+      "releaseDate": "2022-11-09",
+      "url": "https://www.metacritic.com/game/god-of-war-ragnarok/"
+    },
+    {
+      "id": 8,
+      "title": "하데스2",
+      "score": 94,
+      "releaseDate": "2026-04-14",
+      "url": "https://www.metacritic.com/game/hades-ii/"
+    },
+    {
+      "id": 9,
+      "title": "하데스",
+      "score": 93,
+      "releaseDate": "2021-08-13",
+      "url": "https://www.metacritic.com/game/hades/"
+    },
+    {
+      "id": 10,
+      "title": "테트리스 이펙트",
+      "score": 93,
+      "releaseDate": "2023-02-22",
+      "url": "https://www.metacritic.com/game/tetris-effect-connected/"
+    }
+  ]
+}

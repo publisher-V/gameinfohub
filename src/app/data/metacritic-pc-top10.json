@@ -1,0 +1,74 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "디스코 엘리시움 : 더 파이널 컷",
+      "score": 97,
+      "releaseDate": "2021-03-30",
+      "url": "https://www.metacritic.com/game/disco-elysium-the-final-cut/"
+    },
+    {
+      "id": 2,
+      "title": "하프라이프2",
+      "score": 96,
+      "releaseDate": "2004-11-16",
+      "url": "https://www.metacritic.com/game/half-life-2/"
+    },
+    {
+      "id": 3,
+      "title": "GTA5",
+      "score": 96,
+      "releaseDate": "2015-04-13",
+      "url": "https://www.metacritic.com/game/grand-theft-auto-v/"
+    },
+    {
+      "id": 4,
+      "title": "발더스 게이트3",
+      "score": 96,
+      "releaseDate": "2023-08-03",
+      "url": "https://www.metacritic.com/game/baldurs-gate-3/"
+    },
+    {
+      "id": 5,
+      "title": "더 오렌지 박스",
+      "score": 96,
+      "releaseDate": "2007-10-10",
+      "url": "https://www.metacritic.com/game/the-orange-box/"
+    },
+    {
+      "id": 6,
+      "title": "하프라이프",
+      "score": 96,
+      "releaseDate": "1998-11-19",
+      "url": "https://www.metacritic.com/game/half-life/"
+    },
+    {
+      "id": 7,
+      "title": "바이오쇼크",
+      "score": 96,
+      "releaseDate": "2007-08-21",
+      "url": "https://www.metacritic.com/game/bioshock/"
+    },
+    {
+      "id": 8,
+      "title": "발더스 게이트2 : 쉐도우 오브 암즈",
+      "score": 95,
+      "releaseDate": "2000-09-24",
+      "url": "https://www.metacritic.com/game/baldurs-gate-ii-shadows-of-amn/"
+    },
+    {
+      "id": 9,
+      "title": "페르소나5 더 로열",
+      "score": 95,
+      "releaseDate": "2022-10-21",
+      "url": "https://www.metacritic.com/game/persona-5-royal/"
+    },
+    {
+      "id": 10,
+      "title": "포탈2",
+      "score": 95,
+      "releaseDate": "2011-04-18",
+      "url": "https://www.metacritic.com/game/portal-2/"
+    }
+  ]
+}

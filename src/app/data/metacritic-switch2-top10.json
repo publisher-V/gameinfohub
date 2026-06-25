@@ -1,0 +1,74 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "젤다의 전설 : 티어스 오브 더 킹덤 - 닌텐도 스위치2 에디션",
+      "score": 95,
+      "releaseDate": "2025-06-05",
+      "url": "https://www.metacritic.com/game/the-legend-of-zelda-tears-of-the-kingdom-nintendo/"
+    },
+    {
+      "id": 2,
+      "title": "하데스2",
+      "score": 95,
+      "releaseDate": "2025-09-25",
+      "url": "https://www.metacritic.com/game/hades-ii/"
+    },
+    {
+      "id": 3,
+      "title": "젤다의 전설 : 브레스 오브 더 와일드 - 닌텐도 스위치2 에디션",
+      "score": 94,
+      "releaseDate": "2025-06-05",
+      "url": "https://www.metacritic.com/game/the-legend-of-zelda-breath-of-the-wild-nintendo/"
+    },
+    {
+      "id": 4,
+      "title": "섹토리",
+      "score": 94,
+      "releaseDate": "2026-05-14",
+      "url": "https://www.metacritic.com/game/sektori/"
+    },
+    {
+      "id": 5,
+      "title": "할로우 나이트 : 실크송",
+      "score": 91,
+      "releaseDate": "2025-09-04",
+      "url": "https://www.metacritic.com/game/hollow-knight-silksong/"
+    },
+    {
+      "id": 6,
+      "title": "동키콩 바난자",
+      "score": 91,
+      "releaseDate": "2025-07-17",
+      "url": "https://www.metacritic.com/game/donkey-kong-bananza/"
+    },
+    {
+      "id": 7,
+      "title": "바이오하자드 레퀴엠",
+      "score": 90,
+      "releaseDate": "2026-02-27",
+      "url": "https://www.metacritic.com/game/resident-evil-requiem/"
+    },
+    {
+      "id": 8,
+      "title": "미나 더 할로워",
+      "score": 90,
+      "releaseDate": "2026-05-29",
+      "url": "https://www.metacritic.com/game/mina-the-hollower/"
+    },
+    {
+      "id": 9,
+      "title": "하늘의 궤적 the 1st",
+      "score": 90,
+      "releaseDate": "2025-09-19",
+      "url": "https://www.metacritic.com/game/trails-in-the-sky-1st-chapter/"
+    },
+    {
+      "id": 10,
+      "title": "파이널 판타지7 리메이크",
+      "score": 89,
+      "releaseDate": "2026-01-22",
+      "url": "https://www.metacritic.com/game/final-fantasy-vii-remake-intergrade/"
+    }
+  ]
+}
